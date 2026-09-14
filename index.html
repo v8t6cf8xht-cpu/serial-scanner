@@ -24,17 +24,21 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;borde
 .small{font-size:13px;color:#666}.hidden{display:none!important}
 #manual{margin-top:10px}.row{display:flex;gap:8px}.row input{flex:1;margin:0}.row button{width:120px}
 </style>
-</head>
+<style>
+.camera-card{padding:0;overflow:hidden}
+.camera-card #reader{order:1}
+.camera-card .camera-head{order:0}
+</style></head>
 <body>
 <div class="wrap">
   <div class="card">
     <h1>📷 序號掃描工具</h1>
-    <label>掃描模式</label>
+    <label>② 掃描方式</label>
     <div class="mode">
       <button id="qrBtn" class="active" onclick="setMode('QR_CODE')">QR Code</button>
       <button id="barBtn" onclick="setMode('BARCODE')">二維/條碼</button>
     </div>
-    <p class="small">可依實際條碼格式切換。掃描內容會直接當作序號。</p>
+    <p class="small">先輸入型號，再開啟相機。掃描成功後會自動連續累積序號。</p>
   </div>
 
   <div class="card">
@@ -43,14 +47,14 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:8px;borde
     <div class="count"><span id="count">0</span></div>
     <div class="status" id="status">尚未開始</div>
     <div class="actions">
-      <button class="success" onclick="startScan()">開始掃描</button>
-      <button class="secondary" onclick="stopScan()">停止掃描</button>
+      <button class="success" onclick="startScan()">開啟相機掃描</button>
+      <button class="secondary" onclick="stopScan()">停止相機</button>
     </div>
     <div id="reader" class="hidden"></div>
   </div>
 
   <div class="card">
-    <label>手動輸入序號</label>
+    <label>③ 手動輸入序號</label>
     <div class="row">
       <input id="manual" placeholder="輸入序號">
       <button onclick="addManual()">加入</button>
